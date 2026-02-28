@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifest Your Reality</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #FF6B2B; --orange-light: #FF9A6C; --orange-pale: #FFF0E8;
+    --cream: #FFFBF7; --lavender: #F0ECFF; --text: #2D2416;
+    --text-mid: #6B5B4E; --text-light: #A89080;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+  .hero {
+    min-height: 100vh; background: linear-gradient(135deg, #FFF5EE 0%, #FFF0F8 40%, #F0ECFF 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,43,0.12) 0%, transparent 70%);
+    top: -200px; right: -200px;
+  }
+  .badge {
+    display: inline-block; background: var(--orange-pale); color: var(--orange);
+    font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase; padding: 8px 20px;
+    border-radius: 100px; margin-bottom: 28px; border: 1px solid rgba(255,107,43,0.2);
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 7vw, 96px); font-weight: 700; line-height: 1.05; margin-bottom: 20px; }
+  .hero h1 em { color: var(--orange); font-style: italic; }
+  .hero-sub { font-family: 'Space Grotesk', sans-serif; font-size: clamp(16px, 2vw, 20px); color: var(--text-mid); max-width: 560px; line-height: 1.7; margin-bottom: 48px; font-weight: 300; }
+  .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--orange), transparent); animation: pulse 2s ease-in-out infinite; margin: 0 auto; }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+  .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.15; margin-bottom: 24px; }
+  .section-body { font-size: 17px; color: var(--text-mid); line-height: 1.8; max-width: 680px; }
+  .pillars { background: linear-gradient(135deg, #FFF8F3 0%, #F5F0FF 100%); padding: 100px 24px; }
+  .pillars-inner { max-width: 1100px; margin: 0 auto; }
+  .pillars-header { text-align: center; margin-bottom: 64px; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .pillar-card { background: white; border-radius: 24px; padding: 36px 32px; position: relative; overflow: hidden; border: 1px solid rgba(255,107,43,0.08); transition: transform .3s, box-shadow .3s; }
+  .pillar-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(255,107,43,0.1); }
+  .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--g); }
+  .pillar-card:nth-child(1){--g:linear-gradient(90deg,#FF6B2B,#FFB347)} .pillar-card:nth-child(2){--g:linear-gradient(90deg,#A78BFA,#C4B5FD)} .pillar-card:nth-child(3){--g:linear-gradient(90deg,#34D399,#6EE7B7)} .pillar-card:nth-child(4){--g:linear-gradient(90deg,#F59E0B,#FCD34D)} .pillar-card:nth-child(5){--g:linear-gradient(90deg,#60A5FA,#93C5FD)} .pillar-card:nth-child(6){--g:linear-gradient(90deg,#F472B6,#FBCFE8)}
+  .pillar-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+  .pillar-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+  .pillar-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+  .pillar-tag { display: inline-block; margin-top: 16px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); background: var(--orange-pale); padding: 5px 12px; border-radius: 100px; }
+  .steps-section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+  .steps-header { text-align: center; margin-bottom: 80px; }
+  .step { display: grid; grid-template-columns: 80px 1fr; gap: 40px; padding: 48px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700; color: var(--orange-pale); line-height: 1; }
+  .step-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 12px; }
+  .step-content p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 20px; max-width: 640px; }
+  .step-science { display: inline-flex; align-items: center; gap: 8px; background: var(--lavender); border-radius: 12px; padding: 12px 18px; font-size: 13px; color: #6B52C8; font-family: 'Space Grotesk', sans-serif; font-weight: 500; }
+  .step-science::before { content: '⚛️'; }
+  .freq-section { background: linear-gradient(135deg, #1A0F0A 0%, #2D1505 50%, #1A0A1A 100%); padding: 120px 24px; text-align: center; position: relative; overflow: hidden; }
+  .freq-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,107,43,0.15) 0%, transparent 60%); }
+  .freq-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .freq-title { font-family: 'Playfair Display', serif; font-size: clamp(36px,5vw,64px); color: white; margin-bottom: 16px; line-height: 1.1; }
+  .freq-title span { color: var(--orange-light); }
+  .freq-sub { color: rgba(255,255,255,.6); font-size: 17px; margin-bottom: 64px; line-height: 1.7; }
+  .freq-scale { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .freq-row { display: grid; grid-template-columns: 160px 1fr 60px; align-items: center; gap: 16px; }
+  .freq-label { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: rgba(255,255,255,.7); text-align: right; }
+  .freq-track { height: 10px; background: rgba(255,255,255,.06); border-radius: 100px; overflow: hidden; }
+  .freq-bar { height: 100%; border-radius: 100px; }
+  .freq-hz { font-family: 'Space Grotesk', sans-serif; font-size: 11px; color: rgba(255,255,255,.4); }
+  .practice-section { background: var(--orange-pale); padding: 100px 24px; }
+  .practice-inner { max-width: 1100px; margin: 0 auto; }
+  .practice-header { text-align: center; margin-bottom: 60px; }
+  .practice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
+  .practice-card { background: white; border-radius: 20px; padding: 32px 24px; text-align: center; transition: transform .3s; }
+  .practice-card:hover { transform: translateY(-4px); }
+  .practice-time { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+  .practice-icon { font-size: 40px; margin-bottom: 16px; }
+  .practice-card h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; margin-bottom: 8px; }
+  .practice-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+  .quote-section { padding: 100px 24px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .big-quote { font-family: 'Playfair Display', serif; font-size: clamp(24px,4vw,46px); line-height: 1.4; font-style: italic; margin-bottom: 24px; }
+  .big-quote span { color: var(--orange); }
+  .quote-attr { font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: var(--text-light); }
+  .divider { display: flex; align-items: center; gap: 16px; max-width: 300px; margin: 0 auto 48px; }
+  .divider-line { flex: 1; height: 1px; background: rgba(255,107,43,0.2); }
+  .divider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+  footer { background: var(--text); padding: 48px 24px; text-align: center; color: rgba(255,255,255,.4); font-family: 'Space Grotesk', sans-serif; font-size: 13px; }
+  footer strong { color: var(--orange-light); }
+  @media(max-width:600px){.step{grid-template-columns:1fr;gap:12px}.freq-row{grid-template-columns:110px 1fr 45px}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="badge">✦ Quantum Manifestation Guide</div>
+  <h1>Design Your <em>Reality</em><br>from the Inside Out</h1>
+  <p class="hero-sub">The universe isn't just physical — it's informational. Science and ancient wisdom agree: your consciousness shapes the world around you.</p>
+  <div class="scroll-line"></div>
+</section>
+<section class="section">
+  <p class="section-label">The Foundation</p>
+  <h2 class="section-title">Why Quantum Physics<br>Changes Everything</h2>
+  <p class="section-body">Quantum mechanics reveals that reality at its core is probabilistic — not fixed. Particles exist in superposition, waves of possibility collapsing only upon observation. This isn't just physics. It's a blueprint for how your focused attention literally participates in creating your lived experience.</p>
+</section>
+<section class="pillars">
+  <div class="pillars-inner">
+    <div class="pillars-header">
+      <p class="section-label">The Science</p>
+      <h2 class="section-title">6 Quantum Principles<br>Behind Manifestation</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card"><span class="pillar-icon">🌊</span><h3>Wave-Particle Duality</h3><p>Matter exists as both wave (possibility) and particle (reality). It solidifies when observed. You are the observer — your attention collapses potential into experience.</p><span class="pillar-tag">Observer Effect</span></div>
+      <div class="pillar-card"><span class="pillar-icon">🔗</span><h3>Quantum Entanglement</h3><p>Two connected particles transcend distance. Your intentions create invisible threads of connection with the outcomes you desire — space is no barrier.</p><span class="pillar-tag">Non-locality</span></div>
+      <div class="pillar-card"><span class="pillar-icon">🌀</span><h3>Superposition</h3><p>A system exists in all possible states simultaneously until measured. Every version of your future co-exists — your beliefs determine which you "collapse" into being.</p><span class="pillar-tag">Possibility Fields</span></div>
+      <div class="pillar-card"><span class="pillar-icon">⚡</span><h3>Energy & Frequency</h3><p>Everything vibrates — matter is just slow-moving energy. Your thoughts and emotions carry measurable electromagnetic frequencies that interact with the field.</p><span class="pillar-tag">Resonance</span></div>
+      <div class="pillar-card"><span class="pillar-icon">🧠</span><h3>Neuroplasticity</h3><p>The brain rewires itself based on repetitive thought. Visualization creates the same neural pathways as lived experience — training your brain for new reality.</p><span class="pillar-tag">Brain Rewiring</span></div>
+      <div class="pillar-card"><span class="pillar-icon">🌐</span><h3>The Zero-Point Field</h3><p>Quantum vacuum energy — a field of infinite potential underlying all reality. Consciousness may interact with this field to pull desired events into form.</p><span class="pillar-tag">Field Theory</span></div>
+    </div>
+  </div>
+</section>
+<section class="steps-section">
+  <div class="steps-header">
+    <p class="section-label">The Practice</p>
+    <h2 class="section-title">How to Manifest,<br>Step by Step</h2>
+  </div>
+  <div>
+    <div class="step"><div class="step-num">01</div><div class="step-content"><h3>🎯 Define Your Intention with Precision</h3><p>Vague wishes create vague realities. Write your intention in present tense as if already true — specificity tightens the quantum wave function and gives the field a clear target to collapse toward.</p><div class="step-science">The reticular activating system (RAS) filters reality based on focus — you literally begin seeing what you're tuned to.</div></div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-content"><h3>💫 Raise Your Emotional Frequency</h3><p>High-frequency emotions — gratitude, love, joy — emit coherent electromagnetic signals from the heart (up to 5,000× the brain's signal). Feel the reality before it physically arrives.</p><div class="step-science">HeartMath Institute research shows heart coherence synchronizes brain and body, creating optimal states for attracting synchronicities.</div></div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-content"><h3>🖼️ Vivid Visualization</h3><p>The subconscious doesn't distinguish between vividly imagined and real. Create a mental movie of your desired reality with all five senses for 5–10 minutes daily, especially upon waking.</p><div class="step-science">Mental rehearsal activates the same motor cortex regions as physical performance — your brain is literally practicing your future.</div></div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-content"><h3>🌱 Embody the Identity Now</h3><p>You don't manifest what you want — you manifest what you believe you are. Begin acting, thinking, and speaking as the version of you who already has what you desire. Identity precedes evidence.</p><div class="step-science">Cognitive dissonance theory: the brain resolves gaps between identity and behavior — align your identity and action naturally follows.</div></div></div>
+    <div class="step"><div class="step-num">05</div><div class="step-content"><h3>🤲 Release & Trust the Field</h3><p>Paradoxically, clinging with desperation creates resistance. Once you've set your intention and raised your frequency, release attachment to the "how." The quantum field works in non-linear ways.</p><div class="step-science">Quantum systems find the path of least resistance — over-efforting collapses possibility prematurely into limited outcomes.</div></div></div>
+    <div class="step"><div class="step-num">06</div><div class="step-content"><h3>⚡ Inspired Action</h3><p>Manifestation isn't passive. When aligned, opportunities and nudges arrive — follow them immediately. These synchronicities are the field responding. Action bridges inner work to outer reality.</p><div class="step-science">Epigenetics shows actions and environment physically alter gene expression — you're continuously co-creating your biology alongside your beliefs.</div></div></div>
+  </div>
+</section>
+<section class="freq-section">
+  <div class="freq-inner">
+    <h2 class="freq-title">The Emotional <span>Frequency</span> Scale</h2>
+    <p class="freq-sub">Dr. David Hawkins mapped human consciousness to measurable energy levels. Higher states don't just feel better — they attract higher-order outcomes.</p>
+    <div class="freq-scale">
+      <div class="freq-row"><div class="freq-label">Enlightenment</div><div class="freq-track"><div class="freq-bar" style="width:100%;background:linear-gradient(90deg,#FF6B2B,#FFD700)"></div></div><div class="freq-hz">700–1000</div></div>
+      <div class="freq-row"><div class="freq-label">Love / Joy</div><div class="freq-track"><div class="freq-bar" style="width:90%;background:linear-gradient(90deg,#FF8C42,#FFAE70)"></div></div><div class="freq-hz">500–600</div></div>
+      <div class="freq-row"><div class="freq-label">Acceptance</div><div class="freq-track"><div class="freq-bar" style="width:75%;background:linear-gradient(90deg,#A78BFA,#C4B5FD)"></div></div><div class="freq-hz">350</div></div>
+      <div class="freq-row"><div class="freq-label">Willingness</div><div class="freq-track"><div class="freq-bar" style="width:62%;background:linear-gradient(90deg,#60A5FA,#93C5FD)"></div></div><div class="freq-hz">310</div></div>
+      <div class="freq-row"><div class="freq-label">Neutrality</div><div class="freq-track"><div class="freq-bar" style="width:50%;background:linear-gradient(90deg,#34D399,#6EE7B7)"></div></div><div class="freq-hz">250</div></div>
+      <div class="freq-row"><div class="freq-label">Fear / Grief</div><div class="freq-track"><div class="freq-bar" style="width:28%;background:linear-gradient(90deg,#94A3B8,#CBD5E1)"></div></div><div class="freq-hz">75–100</div></div>
+      <div class="freq-row"><div class="freq-label">Shame</div><div class="freq-track"><div class="freq-bar" style="width:10%;background:#475569"></div></div><div class="freq-hz">20</div></div>
+    </div>
+  </div>
+</section>
+<section class="practice-section">
+  <div class="practice-inner">
+    <div class="practice-header">
+      <p class="section-label">Your Daily Ritual</p>
+      <h2 class="section-title">The Manifestation Morning</h2>
+    </div>
+    <div class="practice-grid">
+      <div class="practice-card"><div class="practice-time">Wake · Hypnagogic</div><div class="practice-icon">🌅</div><h4>Liminal State</h4><p>Stay in the drowsy alpha-theta brainwave state. Don't reach for your phone — this is your most receptive moment for imprinting new beliefs.</p></div>
+      <div class="practice-card"><div class="practice-time">10 Minutes</div><div class="practice-icon">🧘</div><h4>Meditation</h4><p>Quiet the stress response. Lower cortisol, access your subconscious. Set intention from a calm, coherent field — not anxious wanting.</p></div>
+      <div class="practice-card"><div class="practice-time">10 Minutes</div><div class="practice-icon">🎞️</div><h4>Visualization</h4><p>Run your mental movie. Engage all five senses. Feel gratitude for the reality as if it's already here — the emotion IS the signal.</p></div>
+      <div class="practice-card"><div class="practice-time">5 Minutes</div><div class="practice-icon">✍️</div><h4>Scripting</h4><p>Write 5 sentences in present tense: "I am... I have... I feel..." Pen to paper anchors the intention into the physical dimension.</p></div>
+      <div class="practice-card"><div class="practice-time">Throughout Day</div><div class="practice-icon">🙏</div><h4>Gratitude Anchors</h4><p>Three times a day, pause and feel genuine gratitude. This maintains your high-frequency baseline and signals abundance to the field.</p></div>
+      <div class="practice-card"><div class="practice-time">Evening</div><div class="practice-icon">🌙</div><h4>Bedtime Review</h4><p>Before sleep, replay moments where things went right. Sleep consolidates neural patterns — always end on a high frequency note.</p></div>
+    </div>
+  </div>
+</section>
+<section class="quote-section">
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+  <p class="big-quote">"The field is the sole governing agency of the particle. <span>The field is consciousness.</span> And you are the field."</p>
+  <p class="quote-attr">— Inspired by Albert Einstein & Quantum Field Theory</p>
+</section>
+<footer><strong>Manifest Your Reality</strong> · Where Quantum Science Meets Inner Work<br><br>Your attention is the most powerful force in the universe. Use it wisely. ✦</footer>
+</body>
+</html>
